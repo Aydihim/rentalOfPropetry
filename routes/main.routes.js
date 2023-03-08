@@ -1,11 +1,11 @@
 const express = require('express');
 
 const router = express.Router();
-const Main = require('../components/Main');
+const Home = require('../components/Home');
 
 router.get('/', (req, res) => {
   try {
-    res.renderComponent(Main, { title: 'MAIN' });
+    res.renderComponent(Home, { title: 'Home' });
   } catch (e) {
     res.status(500).json(e.message);
   }

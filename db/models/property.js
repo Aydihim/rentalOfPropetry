@@ -1,4 +1,3 @@
-'use strict';
 const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Property extends Model {
@@ -32,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       categoryId: {
-        type: Sequelize.INTEGER,
+        type: DataTypes.INTEGER,
         allowNull: false,
         references: {
           model: 'Сategories',
@@ -44,7 +43,7 @@ module.exports = (sequelize, DataTypes) => {
       sequelize,
       modelName: 'Property',
       tableName: 'Properties',
-    }
+    },
   );
   return Property;
 };

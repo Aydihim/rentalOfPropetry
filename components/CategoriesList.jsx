@@ -1,9 +1,16 @@
 const React = require('react');
 const Layout = require('./Layout');
-
+const PropertyCard = require('../components/PropertyCard');
+{
+  console.log('hiiii');
+}
 const CategoriesList = ({ title, properties }) => {
+  {
+    console.log('hooooo', properties);
+  }
+
   return (
-    <Layout title={title} user={user}>
+    <Layout title={title}>
       <div className="bannerDiv">
         <img
           className="banner"
@@ -15,9 +22,12 @@ const CategoriesList = ({ title, properties }) => {
         id="divProperties"
       >
         {properties.length > 0 ? (
-          properties.map((property) => (
-            <PropertyCard key={property.id} property={property} />
-          ))
+          properties.map(
+            (property) => (
+              console.log('elems', property),
+              (<PropertyCard key={property.id} property={property} />)
+            ),
+          )
         ) : (
           <p>идет загрузка</p>
         )}
