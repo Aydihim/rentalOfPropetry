@@ -6,7 +6,7 @@ async function testDbConnection() {
     await db.sequelize.authenticate({ logging: false });
     console.log('БД шпарит на полную');
   } catch (error) {
-    console.log('Ошибка подключения к БД');
+    console.log('Ошибка подключения к БД :(');
     console.log(error.message);
   }
   /* eslint-enable no-console */
