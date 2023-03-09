@@ -49,4 +49,30 @@ router.post('/', async (req, res) => {
   }
 });
 
+router.post('/', async (req, res) => {
+  try {
+    const { password1, login1 } = req.body;
+    console.log(req.body);
+
+    if (login1) {
+      const login = await User.findOne({ where: { login1 } });
+      if (password1) {
+        const password = await User.findOne({ where: { password1 } });
+
+        res.app.locals.nameUser = newUser.name;
+        // console.log(res.app.locals.nameUser);
+        // console.log(newUser.name);
+        // req.session.userId = newUser.id;
+        res.json({ message: 'ok' });
+      } else {
+        res.json({ message: 'Неправильный пароль' });
+      }
+    } else {
+      res.json({ message: 'Неправильный логин' });
+    }
+  } catch (error) {
+    res.json({ message: error.message });
+  }
+});
+
 module.exports = router;

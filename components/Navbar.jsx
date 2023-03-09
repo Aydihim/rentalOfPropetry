@@ -1,5 +1,6 @@
 const React = require('react');
 const Reg = require('./Reg');
+const Login = require('./Login');
 
 function Navbar({ nameUser }) {
   console.log(nameUser);
@@ -43,7 +44,8 @@ function Navbar({ nameUser }) {
                 href="#"
                 role="button"
                 data-bs-toggle="dropdown"
-                aria-expanded="false">
+                aria-expanded="false"
+              >
                 категории
               </a>
               <ul className="dropdown-menu">
@@ -95,12 +97,12 @@ function Navbar({ nameUser }) {
             ) : (
               <>
                 <li>
-                  <input name="login" type="text" placeholder="логин" />
-                  <input name="password" type="password" placeholder="пароль" />
-                  <a href="#">войти</a>
+                  <Reg />
                 </li>
                 <li>
-                  <Reg />
+
+                  <Login />
+
                 </li>
               </>
             )}
