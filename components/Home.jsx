@@ -11,21 +11,21 @@ function Home({ title }) {
         data-bs-ride="carousel"
       >
         <div className="carousel-inner">
-          <div className="carousel-item active" data-bs-interval="1000">
+          <div className="carousel-item active" data-bs-interval="10000">
             <img
               src="https://e1.pxfuel.com/desktop-wallpaper/498/602/desktop-wallpaper-most-beautiful-home-designs-house-plans-in-the-small-homes-small-house.jpg"
               className="d-block w-100"
               alt="..."
             />
           </div>
-          <div className="carousel-item" data-bs-interval="1000">
+          <div className="carousel-item" data-bs-interval="10000">
             <img
               src="https://w0.peakpx.com/wallpaper/370/732/HD-wallpaper-spectacular-seaside-home-modern-house-view-pool-terrace-sea.jpg"
               className="d-block w-100"
               alt="..."
             />
           </div>
-          <div className="carousel-item" data-bs-interval="1000">
+          <div className="carousel-item" data-bs-interval="10000">
             <img
               src="https://c4.wallpaperflare.com/wallpaper/864/0/42/balcony-sofas-interior-design-apartment-wallpaper-preview.jpg"
               className="d-block w-100"
