@@ -1,12 +1,13 @@
 const React = require('react');
 const Reg = require('./Reg');
 
-function Navbar({ user }) {
+function Navbar({ nameUser }) {
+  console.log(nameUser);
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
         <a className="navbar-brand" href="#">
-          Navbar
+          company
         </a>
         <button
           className="navbar-toggler"
@@ -64,10 +65,10 @@ function Navbar({ user }) {
               </ul>
             </li>
 
-            {user ? (
+            {nameUser ? (
               <>
                 <li className="nav-item">
-                  <h3 className="userName">{user.name}</h3>
+                  <h6 className="userName">Привет {nameUser}</h6>
                 </li>
                 <li>
                   <a href="#">избранное</a>

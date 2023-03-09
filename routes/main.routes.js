@@ -17,6 +17,8 @@ router.get('/', (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const { password, password2, name, login } = req.body;
+    console.log(req.body);
+
     if (password && password2 && name && login) {
       if (password === password2) {
         const emailUser = await User.findOne({ where: { login } });
@@ -28,6 +30,9 @@ router.post('/', async (req, res) => {
             password,
             status: false,
           });
+          res.app.locals.nameUser = newUser.name;
+          // console.log(res.app.locals.nameUser);
+          console.log(newUser.name);
           // req.session.userId = newUser.id;
           res.json({ message: 'ok' });
         } else {

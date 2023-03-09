@@ -1,6 +1,7 @@
 const React = require('react');
 
-function Footer({}) {
+function Footer({ nameUser }) {
+  // console.log(nameUser);
   return (
     <nav className="navbar navbar-expand-lg bg-dark ">
       <div className="container-fluid">
