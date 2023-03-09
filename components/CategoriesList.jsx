@@ -7,6 +7,7 @@ const CategoriesList = ({ title, properties }) => {
     <Layout title={title}>
       <div
         className="d-flex flex-wrap justify-content-between"
+        style={{ marginTop: '100px' }}
         id="divProperties"
       >
         {properties.length > 0 ? (

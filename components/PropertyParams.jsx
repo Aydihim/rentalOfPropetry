@@ -10,6 +10,7 @@ const PropertyParams = ({ property, title }) => {
         <div className="card-body">
           <h5 className="card-title">{property.title}</h5>
           <p>{property.price}</p>
+          <button id="likeBtn"c>Добавить в избранное</button>
           <p>{property.info}</p>
           <p>{property.address}</p>
         </div>

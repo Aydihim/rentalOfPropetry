@@ -16,7 +16,6 @@ const getUser = async (req, res, next) => {
     const user = await User.findByPk(Number(req.session.userId), { raw: true });
     res.locals.user = { name: user.name, id: user.id };
   }
-
   next();
 };
 
