@@ -37,18 +37,26 @@ function Layout({ title, children, nameUser }) {
         />
 
         <script defer src="/scripts/regScript.js" />
-     
+
         <script
           src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=a9574d29-a9a4-4ce6-b3bf-99919499ad18"
           type="text/javascript"
         />
-        <script defer src="https://yandex.st/jquery/2.2.3/jquery.min.js" type="text/javascript" />
-        <script defer src="multiroute_custom_balloon_layout.js" type="text/javascript" />
+        <script
+          defer
+          src="https://yandex.st/jquery/2.2.3/jquery.min.js"
+          type="text/javascript"
+        />
+        <script
+          defer
+          src="multiroute_custom_balloon_layout.js"
+          type="text/javascript"
+        />
         <script defer src="/Js/api.js" />
         <title>{title}</title>
       </head>
       <body>
-<Navbar nameUser={nameUser} />
+        <Navbar nameUser={nameUser} />
         {children}
         <Footer />
       </body>
