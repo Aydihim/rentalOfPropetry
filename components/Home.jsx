@@ -1,9 +1,10 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-function Home({ title }) {
+function Home({ title, nameUser }) {
+  console.log(nameUser);
   return (
-    <Layout title={title}>
+    <Layout title={title} nameUser={nameUser}>
       {/* <FormReg /> */}
       <div
         id="carouselExampleAutoplaying"
@@ -20,6 +21,7 @@ function Home({ title }) {
               height="800"
             />
           </div>
+
           <div className="carousel-item " data-bs-interval="2000">
             <img
               src="https://w0.peakpx.com/wallpaper/22/426/HD-wallpaper-beautiful-inside-house-view-room.jpg"
@@ -29,7 +31,9 @@ function Home({ title }) {
               height="800"
             />
           </div>
+
           <div className="carousel-item" data-bs-interval="2000">
+
             <img
               src="https://st.hzcdn.com/simgs/pictures/bedrooms/2013-luxury-home-inver-grove-heights-highmark-builders-img~c011a96f020934b9_9-0966-1-cef8369.jpg"
               className="d-block w-100 rounded-4"

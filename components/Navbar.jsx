@@ -1,6 +1,8 @@
 const React = require('react');
+const Reg = require('./Reg');
 
-function Navbar({ user }) {
+function Navbar({ nameUser }) {
+  console.log(nameUser);
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <img
@@ -10,7 +12,7 @@ function Navbar({ user }) {
       />
       <div className="container-fluid ">
         <a className="navbar-brand" href="#">
-          Navbar
+          company
         </a>
         <button
           className="navbar-toggler"
@@ -19,8 +21,10 @@ function Navbar({ user }) {
           data-bs-target="#navbarNavDropdown"
           aria-controls="navbarNavDropdown"
           aria-expanded="false"
-          aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon" />
+
         </button>
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav">
@@ -60,13 +64,16 @@ function Navbar({ user }) {
                     комнаты
                   </a>
                 </li>
+                {/* <li>
+                  <Reg />
+                </li> */}
               </ul>
             </li>
 
-            {user ? (
+            {nameUser ? (
               <>
                 <li className="nav-item">
-                  <h3 className="userName">{user.name}</h3>
+                  <h6 className="userName">Привет {nameUser}</h6>
                 </li>
                 <li>
                   <a href="#">избранное</a>
@@ -80,10 +87,11 @@ function Navbar({ user }) {
                 <li>
                   <input name="login" type="text" placeholder="логин" />
                   <input name="password" type="password" placeholder="пароль" />
-                  <a href="#">войти</a> {/*  роут на хоум */}
+                  <a href="#">войти</a>
                 </li>
                 <li>
-                  <a href="#">зарегистрироваться</a> {/*  роут на форму регистрации */}
+                  <Reg />
+
                 </li>
               </>
             )}
