@@ -4,7 +4,7 @@ const Reg = require('./Reg');
 function Navbar({ nameUser }) {
   console.log(nameUser);
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
       <img
         className="ms-5"
         src="https://englex.ru/app/uploads/how-to-book-the-best-accommodation.png"
@@ -32,7 +32,7 @@ function Navbar({ nameUser }) {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <a className="nav-link" href="#map">
                 контакты
               </a>
             </li>
