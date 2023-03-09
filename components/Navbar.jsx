@@ -5,7 +5,12 @@ function Navbar({ nameUser }) {
   console.log(nameUser);
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
-      <div className="container-fluid">
+      <img
+        className="ms-5"
+        src="https://englex.ru/app/uploads/how-to-book-the-best-accommodation.png"
+        width="80px"
+      />
+      <div className="container-fluid ">
         <a className="navbar-brand" href="#">
           company
         </a>
@@ -19,6 +24,7 @@ function Navbar({ nameUser }) {
           aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon" />
+
         </button>
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav">
@@ -39,8 +45,7 @@ function Navbar({ nameUser }) {
                 href="#"
                 role="button"
                 data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
+                aria-expanded="false">
                 категории
               </a>
               <ul className="dropdown-menu">
@@ -86,6 +91,7 @@ function Navbar({ nameUser }) {
                 </li>
                 <li>
                   <Reg />
+
                 </li>
               </>
             )}

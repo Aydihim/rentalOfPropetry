@@ -7,7 +7,7 @@ const PropertyParams = require('../components/PropertyParams');
 
 router.get('/', async (req, res) => {
   try {
-    const properties = await Property.findAll({ raw: true });
+    const properties = await Property.findAll({ where: { categoryId: 2 } });
     res.renderComponent(CategoryList, { title: 'Appartments', properties });
   } catch (e) {
     res.status(500).json(e.message);
