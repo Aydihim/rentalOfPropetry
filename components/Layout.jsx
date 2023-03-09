@@ -9,11 +9,6 @@ function Layout({ title, children }) {
         <meta charSet="UTF-8" />
         <meta httpEquiv="Content-Type" content="text/html" charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        {/*<script
-          defer
-          src="https://api-maps.yandex.ru/2.1/?apikey=a1436f95-2454-4c6f-8c2e-740f560c4e54&lang=ru_RU"
-          type="text/javascript"
-        />*/}
 
         <link rel="stylesheet" href="/css/bootstrap.min.css" />
         <link rel="stylesheet" href="/css/styles.css" />

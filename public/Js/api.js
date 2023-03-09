@@ -10,7 +10,7 @@ function init() {
     {
       iconLayout: 'default#image',
       iconImageHref: 'https://cdn-icons-png.flaticon.com/512/2838/2838709.png',
-      iconImageSize: [40, 40],
+      iconImageSize: [60, 60],
       iconImageOffset: [-19, -44],
     }
   );
