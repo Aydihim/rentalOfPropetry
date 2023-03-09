@@ -33,7 +33,7 @@ router.post('/', async (req, res) => {
           res.app.locals.nameUser = newUser.name;
           // console.log(res.app.locals.nameUser);
           console.log(newUser.name);
-          // req.session.userId = newUser.id;
+          req.session.userId = newUser.id;
           res.json({ message: 'ok' });
         } else {
           res.json({ message: 'Такой email уже существует' });

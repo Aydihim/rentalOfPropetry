@@ -14,7 +14,7 @@ const cookiesCleaner = (req, res, next) => {
 const getUser = async (req, res, next) => {
   if (req.session.userId) {
     const user = await User.findByPk(Number(req.session.userId), { raw: true });
-    res.locals.user = { name: user.name, id: user.id };
+    res.app.locals.user = { name: user.name, id: user.id };
   }
 
   next();

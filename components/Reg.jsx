@@ -9,8 +9,7 @@ function Reg({ title }) {
           className="btn btn-primary"
           data-bs-toggle="modal"
           data-bs-target="#exampleModal"
-          data-bs-whatever="@mdo"
-        >
+          data-bs-whatever="@mdo">
           регистрация
         </button>
         <div
@@ -18,8 +17,7 @@ function Reg({ title }) {
           id="exampleModal"
           tabIndex="-1"
           aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
+          aria-hidden="true">
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header">
@@ -39,23 +37,13 @@ function Reg({ title }) {
                     <label htmlFor="recipient-name" className="col-form-label">
                       кого регистрируем?
                     </label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="recipient-name"
-                      name="name"
-                    />
+                    <input type="text" className="form-control" id="recipient-name" name="name" />
                   </div>
                   <div className="mb-3">
                     <label htmlFor="recipient-name" className="col-form-label">
                       Емайл мама/папа не собака:
                     </label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="recipient-name"
-                      name="login"
-                    />
+                    <input type="text" className="form-control" id="recipient-name" name="login" />
                   </div>
                   <div className="mb-3">
                     <label htmlFor="recipient-name" className="col-form-label">
@@ -79,14 +67,13 @@ function Reg({ title }) {
                       name="password2"
                     />
                   </div>
+                  <div>
+                    <h2 className="error"></h2>
+                  </div>
                 </form>
               </div>
               <div className="modal-footer">
-                <button
-                  type="button"
-                  className="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
+                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">
                   Close
                 </button>
                 <button type="submit" className="btn btn-primary">
@@ -97,9 +84,6 @@ function Reg({ title }) {
           </div>
         </div>
       </form>
-      <div>
-        <h2 className="error"></h2>
-      </div>
     </>
   );
 }

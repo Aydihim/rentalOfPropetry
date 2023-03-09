@@ -14,19 +14,13 @@ function Layout({ title, children, nameUser }) {
         <link rel="stylesheet" href="/css/styles.css" />
 
         <link rel="stylesheet" href="/css/modal.css" />
-        <link
-          href="https://fonts.googleapis.com/css?family=Raleway"
-          rel="stylesheet"
-        />
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         />
 
-        <link
-          rel="canonical"
-          href="https://getbootstrap.com/docs/5.3/examples/modals/"
-        />
+        <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/modals/" />
 
         <link rel="stylesheet" href="style.css" />
 
@@ -37,7 +31,7 @@ function Layout({ title, children, nameUser }) {
         />
 
         <script defer src="/scripts/regScript.js" />
-     
+
         <script
           src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=a9574d29-a9a4-4ce6-b3bf-99919499ad18"
           type="text/javascript"
@@ -48,7 +42,7 @@ function Layout({ title, children, nameUser }) {
         <title>{title}</title>
       </head>
       <body>
-<Navbar nameUser={nameUser} />
+        <Navbar nameUser={nameUser} />
         {children}
         <Footer />
       </body>

@@ -2,7 +2,7 @@
   "development": {
     "username": "postgres",
     "password": "postgres",
-    "database": "apartPropertyRent1",
+    "database": "apartPropertyRentPromo",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
