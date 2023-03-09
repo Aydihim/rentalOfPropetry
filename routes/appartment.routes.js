@@ -1,14 +1,14 @@
 const express = require('express');
 
 const router = express.Router();
-const CategoryList = require('../components/categoryList');
+const CategoryList = require('../components/CategoriesList');
 const { Property } = require('../db/models');
-const PropertyParams = require('../PropertyParams');
+const PropertyParams = require('../components/PropertyParams');
 
 router.get('/', async (req, res) => {
   try {
-    const apparts = await Property.findAll({ where: { categoryId: 2 } });
-    res.renderComponent(CategoryList, { title: 'Appartments', apparts });
+    const properties = await Property.findAll({ raw: true });
+    res.renderComponent(CategoryList, { title: 'Appartments', properties });
   } catch (e) {
     res.status(500).json(e.message);
   }
