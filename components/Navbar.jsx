@@ -5,7 +5,7 @@ const Login = require('./Login');
 function Navbar({ nameUser }) {
   console.log(nameUser);
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
       <img
         className="ms-5"
         src="https://englex.ru/app/uploads/how-to-book-the-best-accommodation.png"
@@ -22,8 +22,7 @@ function Navbar({ nameUser }) {
           data-bs-target="#navbarNavDropdown"
           aria-controls="navbarNavDropdown"
           aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+          aria-label="Toggle navigation">
           <span className="navbar-toggler-icon" />
         </button>
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
@@ -34,7 +33,7 @@ function Navbar({ nameUser }) {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <a className="nav-link" href="#map">
                 контакты
               </a>
             </li>
@@ -73,15 +72,27 @@ function Navbar({ nameUser }) {
 
             {nameUser ? (
               <>
-                <li className="nav-item">
-                  <h6 className="userName">Привет {nameUser}</h6>
-                </li>
-                <li>
-                  <a href="#">избранное</a>
-                </li>
-                <li>
-                  <a href="#">выйти</a>
-                </li>
+                <div className="d-flex">
+                  <li className="nav-item" style={{ marginLeft: '700px' }}>
+                    <h6 className="userName nav-link">Привет {nameUser}</h6>
+                  </li>
+                  <li>
+                    <a className="nav-link" href="#">
+                      избранное
+                    </a>
+                  </li>
+                  <li>
+                    <img
+                      src="https://cdn-icons-png.flaticon.com/512/2202/2202112.png"
+                      width="65px"
+                    />
+                  </li>
+                  <li>
+                    <a className="nav-link" href="#">
+                      выйти
+                    </a>
+                  </li>
+                </div>
               </>
             ) : (
               <>
@@ -89,7 +100,9 @@ function Navbar({ nameUser }) {
                   <Reg />
                 </li>
                 <li>
+
                   <Login />
+
                 </li>
               </>
             )}

@@ -33,7 +33,6 @@ function Home({ title, nameUser }) {
           </div>
 
           <div className="carousel-item" data-bs-interval="2000">
-
             <img
               src="https://st.hzcdn.com/simgs/pictures/bedrooms/2013-luxury-home-inver-grove-heights-highmark-builders-img~c011a96f020934b9_9-0966-1-cef8369.jpg"
               className="d-block w-100 rounded-4"
@@ -70,7 +69,7 @@ function Home({ title, nameUser }) {
             <p className="card-text">"ELBRUS COODING BOOTCAMP"</p>
           </div>
           <div className="d-flex justify-content-center mb-2">
-            <div id="map" className="card-img-bottom"></div>
+            <div id="map" className="card-img-bottom" name="map"></div>
           </div>
         </div>
       </div>

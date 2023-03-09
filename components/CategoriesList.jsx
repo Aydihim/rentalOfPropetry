@@ -8,11 +8,9 @@ const CategoriesList = ({ title, properties }) => {
       <div
         className="d-flex flex-wrap justify-content-between"
         id="divProperties"
-      >
+        style={{ marginTop: '100px' }}>
         {properties.length > 0 ? (
-          properties.map((property) => (
-            <PropertyCard key={property.id} property={property} />
-          ))
+          properties.map((property) => <PropertyCard key={property.id} property={property} />)
         ) : (
           <p>идет загрузка</p>
         )}
