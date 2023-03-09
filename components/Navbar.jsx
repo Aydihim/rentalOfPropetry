@@ -3,7 +3,12 @@ const React = require('react');
 function Navbar({ user }) {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
-      <div className="container-fluid">
+      <img
+        className="ms-5"
+        src="https://englex.ru/app/uploads/how-to-book-the-best-accommodation.png"
+        width="80px"
+      />
+      <div className="container-fluid ">
         <a className="navbar-brand" href="#">
           Navbar
         </a>
@@ -14,8 +19,7 @@ function Navbar({ user }) {
           data-bs-target="#navbarNavDropdown"
           aria-controls="navbarNavDropdown"
           aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+          aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
@@ -37,8 +41,7 @@ function Navbar({ user }) {
                 href="#"
                 role="button"
                 data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
+                aria-expanded="false">
                 категории
               </a>
               <ul className="dropdown-menu">
@@ -80,8 +83,7 @@ function Navbar({ user }) {
                   <a href="#">войти</a> {/*  роут на хоум */}
                 </li>
                 <li>
-                  <a href="#">зарегистрироваться</a>{' '}
-                  {/*  роут на форму регистрации */}
+                  <a href="#">зарегистрироваться</a> {/*  роут на форму регистрации */}
                 </li>
               </>
             )}
