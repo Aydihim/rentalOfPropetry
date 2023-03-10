@@ -27,5 +27,5 @@ router.get('/:propertyId', async (req, res) => {
     res.status(500).json(e.message);
   }
 });
-
+//sggege
 module.exports = router;
