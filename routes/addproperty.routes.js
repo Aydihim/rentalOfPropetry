@@ -1,4 +1,5 @@
 const express = require('express');
+
 const router = express.Router();
 const { Property } = require('../db/models');
 const FormAdd = require('../components/FormAdd');
@@ -8,7 +9,9 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-  const { title, img, price, info, address } = req.body;
+  const {
+    title, img, price, info, address,
+  } = req.body;
 
   try {
     if (title && img && price && info && address) {
@@ -31,15 +34,15 @@ router.post('/', async (req, res) => {
 });
 
 router.delete('/:studentId', async (req, res) => {
-    try {
-      const student = await Student.findOne({ where: { id: req.params.studentId } });
-      if (student.userId === req.session.userId) {
-        const studentNum = await Student.destroy({ where: { id: req.params.studentId } });
-        res.json({ studentNum });
-      }
-    } catch (error) {
-      res.send(console.log(error.message));
+  try {
+    const student = await Student.findOne({ where: { id: req.params.studentId } });
+    if (student.userId === req.session.userId) {
+      const studentNum = await Student.destroy({ where: { id: req.params.studentId } });
+      res.json({ studentNum });
     }
-  });
+  } catch (error) {
+    res.send(console.log(error.message));
+  }
+});
 
 module.exports = router;

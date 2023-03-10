@@ -7,7 +7,10 @@ const PropertyCard = ({ property, category, categoryId }) => {
       <div className="card-body">
         <h5 className="card-title">{property.price}</h5>
         <h5 className="card-title">{property.title}</h5>
-        <a href={`/${categoryId}/${property.id}`} className="button">
+        <a
+          href={`/categories/${categoryId}/properties/${property.id}`}
+          className="button"
+        >
           Посмотреть
         </a>
         <button className="delete" data-id={property.id}>
