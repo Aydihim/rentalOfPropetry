@@ -2,8 +2,9 @@ const React = require('react');
 // const Reg = require('./Reg');
 // const Login = require('./Login');
 
-function Navbar({ userName }) {
-  //console.log(userName, '-------user');
+
+function Navbar({ userName, categories }) {
+
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
       <img
@@ -50,21 +51,15 @@ function Navbar({ userName }) {
                 категории
               </a>
               <ul className="dropdown-menu">
-                <li>
-                  <a className="dropdown-item" href="/houses">
-                    дома
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="/appartments">
-                    квартиры
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="/rooms">
-                    комнаты
-                  </a>
-                </li>
+                {categories?.map((category) => {
+                  return (
+                    <li>
+                      <a className="dropdown-item" href={`/${category.id}`}>
+                        {category.title}
+                      </a>
+                    </li>
+                  );
+                })}
                 {/* <li>
                   <Reg />
                 </li> */}
@@ -97,6 +92,7 @@ function Navbar({ userName }) {
               </>
             ) : (
               <>
+
                 <button
                   type="button"
                   className="btn btn-primary"
@@ -114,6 +110,7 @@ function Navbar({ userName }) {
                 >
                   Лога
                 </button>
+
               </>
             )}
           </ul>

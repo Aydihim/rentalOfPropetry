@@ -1,16 +1,57 @@
 const express = require('express');
+
 const bcrypt = require('bcrypt');
-const { User } = require('../db/models');
+
 
 // const Reg = require('../components/Reg');
 // const Login = require('../components/Login');
 
+
+const { User, Сategory, Property } = require('../db/models');
+const CategoryList = require('../components/CategoriesList');
+
+
+const PropertyParams = require('../components/PropertyParams');
+
 const router = express.Router();
 const Home = require('../components/Home');
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   try {
-    res.renderComponent(Home, { title: 'Home' });
+    const categories = await Сategory.findAll({ raw: true });
+    console.log(categories, '-------------------');
+    res.renderComponent(Home, { title: 'Home', categories });
+  } catch (e) {
+    res.status(500).json(e.message);
+  }
+});
+
+router.get('/:categoryId', async (req, res) => {
+  const { categoryId } = req.params;
+  try {
+    const properties = await Property.findAll({
+      where: { categoryId: Number(categoryId) },
+    });
+    res.renderComponent(CategoryList, { title: '', categoryId, properties });
+  } catch (e) {
+    res.status(500).json(e.message);
+  }
+});
+
+router.get('/:categoryId/:propertyId', async (req, res) => {
+  const { categoryId, propertyId } = req.params;
+  try {
+    const property = await Property.findOne({
+      where: { id: Number(propertyId) },
+    });
+    const properties = await Property.findAll({
+      where: { categoryId: Number(categoryId) },
+    });
+    res.renderComponent(PropertyParams, {
+      title: `${property.title}`,
+      property,
+      properties,
+    });
   } catch (e) {
     res.status(500).json(e.message);
   }
