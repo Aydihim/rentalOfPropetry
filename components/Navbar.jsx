@@ -1,11 +1,10 @@
 const React = require('react');
-const Reg = require('./Reg');
-const Login = require('./Login');
+// const Reg = require('./Reg');
+// const Login = require('./Login');
 
-function Navbar({ nameUser, categories }) {
-  {
-    console.log(categories);
-  }
+
+function Navbar({ userName, categories }) {
+
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
       <img
@@ -70,11 +69,11 @@ function Navbar({ nameUser, categories }) {
               </ul>
             </li>
 
-            {nameUser ? (
+            {userName ? (
               <>
                 <div className="d-flex">
                   <li className="nav-item" style={{ marginLeft: '700px' }}>
-                    <h6 className="userName nav-link">Привет {nameUser}</h6>
+                    <h6 className="userName nav-link">Привет {userName}</h6>
                   </li>
                   <li>
                     <a className="nav-link" href="#">
@@ -88,7 +87,7 @@ function Navbar({ nameUser, categories }) {
                     />
                   </li>
                   <li>
-                    <a className="nav-link" href="#">
+                    <a className="nav-link" href="/logout">
                       выйти
                     </a>
                   </li>
@@ -96,12 +95,25 @@ function Navbar({ nameUser, categories }) {
               </>
             ) : (
               <>
-                <li>
-                  <Reg />
-                </li>
-                <li>
-                  <Login />
-                </li>
+
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                >
+                  Регистрация
+                </button>
+
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModals"
+                >
+                  Лога
+                </button>
+
               </>
             )}
           </ul>

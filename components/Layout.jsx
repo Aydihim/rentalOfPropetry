@@ -4,7 +4,9 @@ const Footer = require('./Footer');
 const Reg = require('./Reg');
 const Login = require('./Login');
 
-function Layout({ title, children, nameUser, categories }) {
+
+function Layout({ title, children, userName, categories }) {
+
   return (
     <html lang="en">
       <head>
@@ -33,6 +35,7 @@ function Layout({ title, children, nameUser, categories }) {
         />
 
         <script defer src="/scripts/regScript.js" />
+        <script defer src="/scripts/loginScript.js" />
 
         <script
           src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=a9574d29-a9a4-4ce6-b3bf-99919499ad18"
@@ -44,10 +47,11 @@ function Layout({ title, children, nameUser, categories }) {
         <title>{title}</title>
       </head>
       <body>
-        <Reg className="bg-white" />
-        <Login className="bg-white" />
 
-        <Navbar nameUser={nameUser} categories={categories} />
+        <Login />
+        <Reg />
+        <Navbar userName={userName}  categories={categories} />
+
         {children}
         <Footer />
       </body>

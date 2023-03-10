@@ -10,6 +10,7 @@ const testDbConnection = require('./db/testDBconection');
 const sessionConfig = require('./config/session');
 
 const indexRouter = require('./routes/index.routes');
+const { getUser } = require('./middleware/getUser');
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.use(session(sessionConfig));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(renderComponents);
+app.use(getUser);
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use(morgan('dev'));
