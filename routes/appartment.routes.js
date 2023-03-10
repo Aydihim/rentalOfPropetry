@@ -17,6 +17,7 @@ router.get('/', async (req, res) => {
 router.get('/:propertyId', async (req, res) => {
   const { propertyId } = req.params;
   try {
+    console.log(propertyId);
     const property = await Property.findOne({
       where: { id: Number(propertyId) },
     });
