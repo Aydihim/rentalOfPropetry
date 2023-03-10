@@ -33,11 +33,11 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.delete('/:studentId', async (req, res) => {
+router.delete('/:propertyId', async (req, res) => {
   try {
-    const student = await Student.findOne({ where: { id: req.params.studentId } });
-    if (student.userId === req.session.userId) {
-      const studentNum = await Student.destroy({ where: { id: req.params.studentId } });
+    const property = await Property.findOne({ where: { id: req.params.propertyId } });
+    if (property.userId === req.session.userId) {
+      const studentNum = await Property.destroy({ where: { id: req.params.propertyId } });
       res.json({ studentNum });
     }
   } catch (error) {

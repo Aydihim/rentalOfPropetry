@@ -30,7 +30,7 @@ if (divProperties) {
         method: 'DELETE',
       });
       const data = await res.json();
-      if (data.studentNum) {
+      if (data.propertiesNum) {
         e.target.closest('.card').remove();
       }
     }

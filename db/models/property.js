@@ -1,10 +1,13 @@
 const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Property extends Model {
-    static associate({ Сategory }) {
+    static associate({ Сategory, User }) {
       Property.Сategory = Property.belongsTo(Сategory, {
         foreignKey: 'categoryId',
         as: 'category',
+      });
+      Property.User = Property.belongsTo(User, {
+        foreignKey: 'userId',
       });
     }
   }
@@ -35,6 +38,13 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         references: {
           model: 'Сategories',
+          key: 'id',
+        },
+      },
+      userId: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: 'Users',
           key: 'id',
         },
       },
