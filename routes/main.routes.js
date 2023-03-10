@@ -1,14 +1,16 @@
 const express = require('express');
-const { User } = require('../db/models');
+const { User, Сategory } = require('../db/models');
 
 // const Reg = require('../components/Reg');
 
 const router = express.Router();
 const Home = require('../components/Home');
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   try {
-    res.renderComponent(Home, { title: 'Home' });
+    const category = await Сategory.findAll({ raw: true });
+    console.log(category, '-------------------');
+    res.renderComponent(Home, { title: 'Home', category });
   } catch (e) {
     res.status(500).json(e.message);
   }
