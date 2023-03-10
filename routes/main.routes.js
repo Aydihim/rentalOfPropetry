@@ -138,8 +138,6 @@ router.post('/login', async (req, res) => {
   }
 });
 
-
-
 router.get('/logout', (req, res) => {
   req.session.destroy((error) => {
     if (error) {
@@ -149,6 +147,5 @@ router.get('/logout', (req, res) => {
     res.clearCookie('user_sid').redirect('/');
   });
 });
-
 
 module.exports = router;

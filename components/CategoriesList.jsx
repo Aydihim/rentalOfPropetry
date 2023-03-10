@@ -2,7 +2,7 @@ const React = require('react');
 const Layout = require('./Layout');
 const PropertyCard = require('../components/PropertyCard');
 
-const CategoriesList = ({ title, properties, user }) => {
+const CategoriesList = ({ title, properties, categoryId, user }) => {
   return (
     <Layout title={title} user={user}>
       <div
@@ -16,6 +16,7 @@ const CategoriesList = ({ title, properties, user }) => {
               key={property.id}
               property={property}
               user={user}
+              categoryId={categoryId}
             />
           ))
         ) : (

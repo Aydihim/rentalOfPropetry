@@ -19,16 +19,24 @@ if (formAdd) {
       }),
     });
     const data = await res.json();
-    document.querySelector('.done').innerHTML = data.message;
+    if (data.message === 'запись добавлена') {
+      window.location.assign('/');
+    } else {
+      document.querySelector('.done').innerHTML = data.message;
+    }
   });
 }
+
 
 if (divProperties) {
   divProperties.addEventListener('click', async (e) => {
     if (e.target.classList.contains('delete')) {
-      const res = await fetch(`/categories/${categoryId}/properties/${e.target.dataset.id}`, {
-        method: 'DELETE',
-      });
+      const res = await fetch(
+        `/categories/${e.target.dataset.chto}/properties/${e.target.dataset.id}`,
+        {
+          method: 'DELETE',
+        },
+      );
       const data = await res.json();
       if (data.propertiesNum) {
         e.target.closest('.card').remove();

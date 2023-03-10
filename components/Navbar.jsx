@@ -2,9 +2,7 @@ const React = require('react');
 // const Reg = require('./Reg');
 // const Login = require('./Login');
 
-
-function Navbar({ user, categories}) {
-
+function Navbar({ user, categories }) {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
       <img
@@ -23,7 +21,8 @@ function Navbar({ user, categories}) {
           data-bs-target="#navbarNavDropdown"
           aria-controls="navbarNavDropdown"
           aria-expanded="false"
-          aria-label="Toggle navigation">
+          aria-label="Toggle navigation"
+        >
           <span className="navbar-toggler-icon" />
         </button>
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
@@ -45,14 +44,18 @@ function Navbar({ user, categories}) {
                 href="#"
                 role="button"
                 data-bs-toggle="dropdown"
-                aria-expanded="false">
+                aria-expanded="false"
+              >
                 категории
               </a>
               <ul className="dropdown-menu">
                 {categories?.map((category) => {
                   return (
                     <li>
-                      <a className="dropdown-item" href={`/categories/${category.id}`}>
+                      <a
+                        className="dropdown-item"
+                        href={`/categories/${category.id}`}
+                      >
                         {category.title}
                       </a>
                     </li>
@@ -76,6 +79,11 @@ function Navbar({ user, categories}) {
                     </a>
                   </li>
                   <li>
+                    <a className="nav-link" href="/addnote">
+                      добавить
+                    </a>
+                  </li>
+                  <li>
                     <img
                       src="https://cdn-icons-png.flaticon.com/512/2202/2202112.png"
                       width="65px"
@@ -94,7 +102,8 @@ function Navbar({ user, categories}) {
                   type="button"
                   className="btn btn-primary"
                   data-bs-toggle="modal"
-                  data-bs-target="#exampleModal">
+                  data-bs-target="#exampleModal"
+                >
                   Регистрация
                 </button>
 
@@ -102,7 +111,8 @@ function Navbar({ user, categories}) {
                   type="button"
                   className="btn btn-primary"
                   data-bs-toggle="modal"
-                  data-bs-target="#exampleModals">
+                  data-bs-target="#exampleModals"
+                >
                   Лога
                 </button>
               </>

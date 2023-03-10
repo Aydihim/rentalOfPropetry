@@ -51,7 +51,7 @@ function Reg({ title }) {
                       Емайл мама/папа не собака:
                     </label>
                     <input
-                      type="text"
+                      type="email"
                       className="form-control"
                       id="recipient-name"
                       name="login"
