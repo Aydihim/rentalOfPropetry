@@ -6,7 +6,7 @@ function Login({ title }) {
       <form action="/" method="post" id="formLogin">
         <button
           type="button"
-          class="btn btn-primary"
+          className="btn btn-primary"
           data-bs-toggle="modal"
           data-bs-target="#exampleModals"
           data-bs-whatever="@getbootstrap"
