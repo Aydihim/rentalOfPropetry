@@ -25,7 +25,7 @@ if (formAdd) {
 
 if (divProperties) {
   divProperties.addEventListener('click', async (e) => {
-    if (e.target.classList.contains('icons')) {
+    if (e.target.classList.contains('delete')) {
       const res = await fetch(`//${e.target.dataset.id}`, {
         method: 'DELETE',
       });

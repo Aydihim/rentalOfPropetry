@@ -2,8 +2,10 @@ const React = require('react');
 const Reg = require('./Reg');
 const Login = require('./Login');
 
-function Navbar({ nameUser, category }) {
-  console.log(category, '9999999999');
+function Navbar({ nameUser, categories }) {
+  {
+    console.log(categories);
+  }
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
       <img
@@ -22,7 +24,8 @@ function Navbar({ nameUser, category }) {
           data-bs-target="#navbarNavDropdown"
           aria-controls="navbarNavDropdown"
           aria-expanded="false"
-          aria-label="Toggle navigation">
+          aria-label="Toggle navigation"
+        >
           <span className="navbar-toggler-icon" />
         </button>
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
@@ -44,15 +47,16 @@ function Navbar({ nameUser, category }) {
                 href="#"
                 role="button"
                 data-bs-toggle="dropdown"
-                aria-expanded="false">
+                aria-expanded="false"
+              >
                 категории
               </a>
               <ul className="dropdown-menu">
-                {category?.map((categories) => {
+                {categories?.map((category) => {
                   return (
                     <li>
-                      <a className="dropdown-item" href={`/${categories.id}`}>
-                        {categories.title}
+                      <a className="dropdown-item" href={`/${category.id}`}>
+                        {category.title}
                       </a>
                     </li>
                   );
