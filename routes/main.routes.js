@@ -38,7 +38,6 @@ router.get('/:categorId/:propertiesId', async (req, res) => {
     const properties = await Property.findAll({
       where: { categoryId: Number(categorId) },
     });
-    const category = Category.findAll({ where: { categoryId: 1 } });
     res.renderComponent(PropertyParams, { title: 'MM', property, properties });
   } catch (e) {
     res.status(500).json(e.message);
