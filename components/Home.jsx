@@ -1,22 +1,15 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-
-
-function Home({ title, categories, user}) {
+function Home({ title, categories, user }) {
   return (
     <Layout title={title} user={user} categories={categories}>
-
-
       {/* <FormReg /> */}
       <div
         id="carouselExampleAutoplaying"
-        className="carousel slide ms-5 me-5 mt-5"
+        className="carousel slide ms-5 me-5"
         data-bs-ride="carousel"
-
-        style={{ heigth: '50rem' }}
-      >
-
+        style={{ heigth: '50rem', width: '1500px', marginTop: '80px' }}>
         <div className="carousel-inner rounded-4">
           <div className="carousel-item active rounded-4 " data-bs-interval="2000">
             <img
@@ -67,8 +60,8 @@ function Home({ title, categories, user}) {
       </div>
       <div className="d-flex justify-content-center">
         <div
-          className="card mt-5 ms-5 me-5 mb-5 d-flex justify-content-center"
-          style={{ width: '45rem' }}>
+          className="card mt-5 ms-5 me-5  d-flex justify-content-center"
+          style={{ width: '45rem', marginBottom: '100px' }}>
           <div className="card-body">
             <h4 className="card-title">Наш адрес:</h4>
             <p className="card-text">г. Санкт-Петербург, ул. Кирочая, дом. 19.</p>

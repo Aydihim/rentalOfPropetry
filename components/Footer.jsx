@@ -9,7 +9,7 @@ function Footer({ nameUser }) {
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
               <a className="nav-link active text-light fs-4" aria-current="page" href="/">
-                TEST ADDRESS
+                @MAKE
               </a>
             </li>
             <li className="nav-item">
