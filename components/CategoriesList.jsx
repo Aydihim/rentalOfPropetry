@@ -2,7 +2,7 @@ const React = require('react');
 const Layout = require('./Layout');
 const PropertyCard = require('../components/PropertyCard');
 
-const CategoriesList = ({ title, category }) => {
+const CategoriesList = ({ title, category, properties }) => {
   return (
     <Layout title={title} category={category}>
       <div
@@ -10,7 +10,7 @@ const CategoriesList = ({ title, category }) => {
         id="divProperties"
         style={{ marginTop: '100px' }}>
         {properties.length > 0 ? (
-          properties.map((category) => <PropertyCard key={property.id} property={property} />)
+          properties.map((property) => <PropertyCard key={property.id} property={property} />)
         ) : (
           <p>идет загрузка</p>
         )}
