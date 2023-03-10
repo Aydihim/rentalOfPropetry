@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/:categoryId', async (req, res) => {
+router.get('/categories/:categoryId', async (req, res) => {
   const { categoryId } = req.params;
   try {
     const properties = await Property.findAll({
@@ -29,24 +29,27 @@ router.get('/:categoryId', async (req, res) => {
   }
 });
 
-router.get('/:categoryId/:propertyId', async (req, res) => {
-  const { categoryId, propertyId } = req.params;
-  try {
-    const property = await Property.findOne({
-      where: { id: Number(propertyId) },
-    });
-    const properties = await Property.findAll({
-      where: { categoryId: Number(categoryId) },
-    });
-    res.renderComponent(PropertyParams, {
-      title: `${property.title}`,
-      property,
-      properties,
-    });
-  } catch (e) {
-    res.status(500).json(e.message);
-  }
-});
+router.get(
+  '/categories/:categoryId/properties/:propertyId',
+  async (req, res) => {
+    const { categoryId, propertyId } = req.params;
+    try {
+      const property = await Property.findOne({
+        where: { id: Number(propertyId) },
+      });
+      const properties = await Property.findAll({
+        where: { categoryId: Number(categoryId) },
+      });
+      res.renderComponent(PropertyParams, {
+        title: `${property.title}`,
+        property,
+        properties,
+      });
+    } catch (e) {
+      res.status(500).json(e.message);
+    }
+  },
+);
 
 router.post('/', async (req, res) => {
   try {

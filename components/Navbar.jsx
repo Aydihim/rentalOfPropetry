@@ -55,7 +55,10 @@ function Navbar({ nameUser, categories }) {
                 {categories?.map((category) => {
                   return (
                     <li>
-                      <a className="dropdown-item" href={`/${category.id}`}>
+                      <a
+                        className="dropdown-item"
+                        href={`/categories/${category.id}`}
+                      >
                         {category.title}
                       </a>
                     </li>

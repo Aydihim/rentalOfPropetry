@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/:propertyId', async (req, res) => {
+router.get('/properties/:propertyId', async (req, res) => {
   const { propertyId } = req.params;
   try {
     const property = await Property.findOne({
