@@ -103,7 +103,8 @@ function Navbar({ user, categories }) {
                   className="btn btn-primary"
                   data-bs-toggle="modal"
                   data-bs-target="#exampleModal"
-                >
+
+                  style={{ marginRight: '20px', marginLeft: '800px' }}>
                   Регистрация
                 </button>
 
