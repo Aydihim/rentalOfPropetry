@@ -1,9 +1,9 @@
 const React = require('react');
-const Reg = require('./Reg');
-const Login = require('./Login');
+// const Reg = require('./Reg');
+// const Login = require('./Login');
 
-function Navbar({ nameUser }) {
-  console.log(nameUser);
+function Navbar({ userName }) {
+  //console.log(userName, '-------user');
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
       <img
@@ -22,7 +22,8 @@ function Navbar({ nameUser }) {
           data-bs-target="#navbarNavDropdown"
           aria-controls="navbarNavDropdown"
           aria-expanded="false"
-          aria-label="Toggle navigation">
+          aria-label="Toggle navigation"
+        >
           <span className="navbar-toggler-icon" />
         </button>
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
@@ -70,11 +71,11 @@ function Navbar({ nameUser }) {
               </ul>
             </li>
 
-            {nameUser ? (
+            {userName ? (
               <>
                 <div className="d-flex">
                   <li className="nav-item" style={{ marginLeft: '700px' }}>
-                    <h6 className="userName nav-link">Привет {nameUser}</h6>
+                    <h6 className="userName nav-link">Привет {userName}</h6>
                   </li>
                   <li>
                     <a className="nav-link" href="#">
@@ -88,7 +89,7 @@ function Navbar({ nameUser }) {
                     />
                   </li>
                   <li>
-                    <a className="nav-link" href="#">
+                    <a className="nav-link" href="/logout">
                       выйти
                     </a>
                   </li>
@@ -96,14 +97,23 @@ function Navbar({ nameUser }) {
               </>
             ) : (
               <>
-                <li>
-                  <Reg />
-                </li>
-                <li>
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                >
+                  Регистрация
+                </button>
 
-                  <Login />
-
-                </li>
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModals"
+                >
+                  Лога
+                </button>
               </>
             )}
           </ul>

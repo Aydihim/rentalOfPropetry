@@ -2,8 +2,9 @@ const React = require('react');
 const Navbar = require('./Navbar');
 const Footer = require('./Footer');
 const Reg = require('./Reg');
+const Login = require('./Login');
 
-function Layout({ title, children, nameUser }) {
+function Layout({ title, children, userName }) {
   return (
     <html lang="en">
       <head>
@@ -38,6 +39,7 @@ function Layout({ title, children, nameUser }) {
         />
 
         <script defer src="/scripts/regScript.js" />
+        <script defer src="/scripts/loginScript.js" />
 
         <script
           src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=a9574d29-a9a4-4ce6-b3bf-99919499ad18"
@@ -57,8 +59,9 @@ function Layout({ title, children, nameUser }) {
         <title>{title}</title>
       </head>
       <body>
+        <Login />
         <Reg />
-        <Navbar nameUser={nameUser} />
+        <Navbar userName={userName} />
         {children}
         <Footer />
       </body>

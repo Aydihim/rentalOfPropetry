@@ -2,9 +2,10 @@ const React = require('react');
 const Layout = require('./Layout');
 const PropertyCard = require('../components/PropertyCard');
 
-const CategoriesList = ({ title, properties }) => {
+const CategoriesList = ({ title, properties, userName }) => {
+  console.log(userName);
   return (
-    <Layout title={title}>
+    <Layout title={title} userName={userName}>
       <div
         className="d-flex flex-wrap justify-content-between"
         id="divProperties"
