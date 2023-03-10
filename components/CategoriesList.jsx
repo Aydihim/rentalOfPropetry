@@ -2,12 +2,9 @@ const React = require('react');
 const Layout = require('./Layout');
 const PropertyCard = require('../components/PropertyCard');
 
-
-const CategoriesList = ({ title, properties, userName, category, categoryId }) => {
-  console.log(userName);
+const CategoriesList = ({ title, properties, user }) => {
   return (
-    <Layout title={title} userName={userName} category={category}>
-
+    <Layout title={title} user={user}>
       <div
         className="d-flex flex-wrap justify-content-between"
         id="divProperties"
@@ -17,8 +14,8 @@ const CategoriesList = ({ title, properties, userName, category, categoryId }) =
           properties.map((property) => (
             <PropertyCard
               key={property.id}
-              categoryId={categoryId}
               property={property}
+              user={user}
             />
           ))
         ) : (

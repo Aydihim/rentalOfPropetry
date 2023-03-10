@@ -1,9 +1,9 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-const PropertyParams = ({ property, title }) => {
+const PropertyParams = ({ property, title, user}) => {
   return (
-    <Layout title={title}>
+    <Layout title={title} user={user}>
       <div className="d-flex justify-content-around">
         <div
           className="card ms-5"

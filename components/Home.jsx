@@ -1,16 +1,22 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-function Home({ title, userName, categories }) {
-  console.log(userName, 'home user');
+
+
+function Home({ title, categories, user}) {
   return (
-    <Layout title={title} userName={userName} categories={categories}>
+    <Layout title={title} user={user} categories={categories}>
+
+
       {/* <FormReg /> */}
       <div
         id="carouselExampleAutoplaying"
         className="carousel slide ms-5 me-5 mt-5"
         data-bs-ride="carousel"
-        style={{ higth: '50rem' }}>
+
+        style={{ heigth: '50rem' }}
+      >
+
         <div className="carousel-inner rounded-4">
           <div className="carousel-item active rounded-4 " data-bs-interval="2000">
             <img
