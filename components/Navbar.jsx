@@ -2,9 +2,7 @@ const React = require('react');
 // const Reg = require('./Reg');
 // const Login = require('./Login');
 
-
 function Navbar({ userName, categories }) {
-
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
       <img
@@ -14,7 +12,7 @@ function Navbar({ userName, categories }) {
       />
       <div className="container-fluid ">
         <a className="navbar-brand" href="#">
-          company
+          MAKE
         </a>
         <button
           className="navbar-toggler"
@@ -23,8 +21,7 @@ function Navbar({ userName, categories }) {
           data-bs-target="#navbarNavDropdown"
           aria-controls="navbarNavDropdown"
           aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+          aria-label="Toggle navigation">
           <span className="navbar-toggler-icon" />
         </button>
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
@@ -46,18 +43,14 @@ function Navbar({ userName, categories }) {
                 href="#"
                 role="button"
                 data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
+                aria-expanded="false">
                 категории
               </a>
               <ul className="dropdown-menu">
                 {categories?.map((category) => {
                   return (
                     <li>
-                      <a
-                        className="dropdown-item"
-                        href={`/categories/${category.id}`}
-                      >
+                      <a className="dropdown-item" href={`/categories/${category.id}`}>
                         {category.title}
                       </a>
                     </li>
@@ -95,13 +88,11 @@ function Navbar({ userName, categories }) {
               </>
             ) : (
               <>
-
                 <button
                   type="button"
                   className="btn btn-primary"
                   data-bs-toggle="modal"
-                  data-bs-target="#exampleModal"
-                >
+                  data-bs-target="#exampleModal">
                   Регистрация
                 </button>
 
@@ -109,11 +100,9 @@ function Navbar({ userName, categories }) {
                   type="button"
                   className="btn btn-primary"
                   data-bs-toggle="modal"
-                  data-bs-target="#exampleModals"
-                >
+                  data-bs-target="#exampleModals">
                   Лога
                 </button>
-
               </>
             )}
           </ul>

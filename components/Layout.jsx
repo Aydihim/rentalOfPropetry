@@ -14,7 +14,7 @@ function Layout({ title, children, userName, categories }) {
 
         <link rel="stylesheet" href="/css/bootstrap.min.css" />
         <link rel="stylesheet" href="/css/styles.css" />
-
+        <link rel="stylesheet" href="/css/fonts.css" />
         <link rel="stylesheet" href="/css/modal.css" />
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
         <link
