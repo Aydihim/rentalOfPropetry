@@ -4,7 +4,7 @@ const Layout = require('./Layout');
 const PropertyParams = ({ property, title, user}) => {
   return (
     <Layout title={title} user={user}>
-      <div className="d-flex justify-content-around">
+      <div className="d-flex justify-content-around card">
         <div
           className="card ms-5"
           style={{ width: '100rem', marginTop: '50px', marginBottom: '100px' }}>

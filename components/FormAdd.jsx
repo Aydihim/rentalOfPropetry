@@ -1,9 +1,9 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-function FormAdd({ title }) {
+function FormAdd({ title, user }) {
   return (
-    <Layout title={title}>
+    <Layout title={title} user={user}>
       <div>
         <form
           action="/addnote"
@@ -49,14 +49,14 @@ function FormAdd({ title }) {
               Категория
             </label>
             <select className="form-select" id="validationCustom04" required>
-              <option selected disabled value="" id="1">
-                Дом
+              <option selected disabled value="" id="3">
+                Комната...
               </option>
               <option selected disabled value="" id="2">
                 Квартира...
               </option>
-              <option selected disabled value="" id="3">
-                Комната...
+              <option selected disabled value="" id="1">
+                Дом
               </option>
             </select>
             <div className="invalid-feedback">Пожалуйста, заполните поле</div>

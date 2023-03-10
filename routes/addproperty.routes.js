@@ -9,9 +9,7 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-  const {
-    title, img, price, info, address,
-  } = req.body;
+  const { title, img, price, info, address } = req.body;
 
   try {
     if (title && img && price && info && address) {
@@ -33,16 +31,23 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.delete('/:propertyId', async (req, res) => {
-  try {
-    const property = await Property.findOne({ where: { id: req.params.propertyId } });
-    if (property.userId === req.session.userId) {
-      const studentNum = await Property.destroy({ where: { id: req.params.propertyId } });
-      res.json({ studentNum });
+router.delete(
+  '/categories/:categoryId/properties/:propertyId',
+  async (req, res) => {
+    try {
+      const property = await Property.findOne({
+        where: { id: req.params.propertyId },
+      });
+      if (property.userId === req.session.userId) {
+        const propertiesNum = await Property.destroy({
+          where: { id: req.params.propertyId },
+        });
+        res.json({ propertiesNum });
+      }
+    } catch (error) {
+      res.send(error.message);
     }
-  } catch (error) {
-    res.send(console.log(error.message));
-  }
-});
+  },
+);
 
 module.exports = router;

@@ -9,7 +9,8 @@ function Login({ title }) {
           id="exampleModals"
           tabIndex="-1"
           aria-labelledby="exampleModalLabels"
-          aria-hidden="true">
+          aria-hidden="true"
+        >
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header">
@@ -29,7 +30,12 @@ function Login({ title }) {
                     <label htmlFor="recipient-name" className="col-form-label">
                       Емайл мама/папа не собака:
                     </label>
-                    <input type="text" className="form-control" id="recipient-name" name="login1" />
+                    <input
+                      type="email"
+                      className="form-control"
+                      id="recipient-name"
+                      name="login1"
+                    />
                   </div>
                   <div className="mb-3">
                     <label htmlFor="recipient-name" className="col-form-label">
@@ -48,7 +54,11 @@ function Login({ title }) {
                 </form>
               </div>
               <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
                   Закрыть
                 </button>
                 <button type="submit" className="btn btn-primary">
