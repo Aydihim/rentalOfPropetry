@@ -30,16 +30,16 @@ router.post('/', async (req, res) => {
   }
 });
 
-// router.delete('/:studentId', async (req, res) => {
-//     try {
-//       const student = await Student.findOne({ where: { id: req.params.studentId } });
-//       if (student.userId === req.session.userId) {
-//         const studentNum = await Student.destroy({ where: { id: req.params.studentId } });
-//         res.json({ studentNum });
-//       }
-//     } catch (error) {
-//       res.send(console.log(error.message));
-//     }
-//   });
+router.delete('/:studentId', async (req, res) => {
+    try {
+      const student = await Student.findOne({ where: { id: req.params.studentId } });
+      if (student.userId === req.session.userId) {
+        const studentNum = await Student.destroy({ where: { id: req.params.studentId } });
+        res.json({ studentNum });
+      }
+    } catch (error) {
+      res.send(console.log(error.message));
+    }
+  });
 
 module.exports = router;

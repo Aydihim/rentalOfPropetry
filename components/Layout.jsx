@@ -4,7 +4,7 @@ const Footer = require('./Footer');
 const Reg = require('./Reg');
 const Login = require('./Login');
 
-function Layout({ title, children, nameUser, category }) {
+function Layout({ title, children, nameUser, categories }) {
   return (
     <html lang="en">
       <head>
@@ -47,7 +47,7 @@ function Layout({ title, children, nameUser, category }) {
         <Reg className="bg-white" />
         <Login className="bg-white" />
 
-        <Navbar nameUser={nameUser} category={category} />
+        <Navbar nameUser={nameUser} categories={categories} />
         {children}
         <Footer />
       </body>

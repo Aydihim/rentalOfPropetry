@@ -9,36 +9,40 @@ const Home = require('../components/Home');
 
 router.get('/', async (req, res) => {
   try {
-    const category = await Сategory.findAll({ raw: true });
-    console.log(category, '-------------------');
-    res.renderComponent(Home, { title: 'Home', category });
+    const categories = await Сategory.findAll({ raw: true });
+    console.log(categories, '-------------------');
+    res.renderComponent(Home, { title: 'Home', categories });
   } catch (e) {
     res.status(500).json(e.message);
   }
 });
 
-router.get('/:categorId', async (req, res) => {
-  const { categorId } = req.params;
+router.get('/:categoryId', async (req, res) => {
+  const { categoryId } = req.params;
   try {
     const properties = await Property.findAll({
-      where: { categoryId: Number(categorId) },
+      where: { categoryId: Number(categoryId) },
     });
-    res.renderComponent(CategoryList, { title: 'SSS', properties });
+    res.renderComponent(CategoryList, { title: '', categoryId, properties });
   } catch (e) {
     res.status(500).json(e.message);
   }
 });
 
-router.get('/:categorId/:propertiesId', async (req, res) => {
-  const { categorId, propertyId } = req.params;
+router.get('/:categoryId/:propertyId', async (req, res) => {
+  const { categoryId, propertyId } = req.params;
   try {
     const property = await Property.findOne({
       where: { id: Number(propertyId) },
     });
     const properties = await Property.findAll({
-      where: { categoryId: Number(categorId) },
+      where: { categoryId: Number(categoryId) },
     });
-    res.renderComponent(PropertyParams, { title: 'MM', property, properties });
+    res.renderComponent(PropertyParams, {
+      title: `${property.title}`,
+      property,
+      properties,
+    });
   } catch (e) {
     res.status(500).json(e.message);
   }
