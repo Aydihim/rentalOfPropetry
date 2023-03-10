@@ -4,9 +4,7 @@ const Footer = require('./Footer');
 const Reg = require('./Reg');
 const Login = require('./Login');
 
-
 function Layout({ title, children, userName, categories }) {
-
   return (
     <html lang="en">
       <head>
@@ -16,7 +14,7 @@ function Layout({ title, children, userName, categories }) {
 
         <link rel="stylesheet" href="/css/bootstrap.min.css" />
         <link rel="stylesheet" href="/css/styles.css" />
-
+        <link rel="stylesheet" href="/css/fonts.css" />
         <link rel="stylesheet" href="/css/modal.css" />
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
         <link
@@ -47,10 +45,9 @@ function Layout({ title, children, userName, categories }) {
         <title>{title}</title>
       </head>
       <body>
-
         <Login />
         <Reg />
-        <Navbar userName={userName}  categories={categories} />
+        <Navbar userName={userName} categories={categories} />
 
         {children}
         <Footer />
