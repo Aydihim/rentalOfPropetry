@@ -5,6 +5,9 @@ body {
   padding: 0;
   margin: 0;
 }
+@font-face {
+	font-family: Pompadur; /* Гарнитура шрифта */
+	src: url(fonts/pompadur.ttf); /* Путь к файлу со шрифтом */
 
 #map {
   width: 700px;

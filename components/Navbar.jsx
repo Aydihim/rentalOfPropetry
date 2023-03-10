@@ -1,9 +1,8 @@
 const React = require('react');
-const Reg = require('./Reg');
-const Login = require('./Login');
+// const Reg = require('./Reg');
+// const Login = require('./Login');
 
-function Navbar({ nameUser }) {
-  console.log(nameUser);
+function Navbar({ userName, categories }) {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
       <img
@@ -13,7 +12,7 @@ function Navbar({ nameUser }) {
       />
       <div className="container-fluid ">
         <a className="navbar-brand" href="#">
-          company
+          MAKE
         </a>
         <button
           className="navbar-toggler"
@@ -44,37 +43,30 @@ function Navbar({ nameUser }) {
                 href="#"
                 role="button"
                 data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
+                aria-expanded="false">
                 категории
               </a>
               <ul className="dropdown-menu">
-                <li>
-                  <a className="dropdown-item" href="/houses">
-                    дома
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="/appartments">
-                    квартиры
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="/rooms">
-                    комнаты
-                  </a>
-                </li>
+                {categories?.map((category) => {
+                  return (
+                    <li>
+                      <a className="dropdown-item" href={`/categories/${category.id}`}>
+                        {category.title}
+                      </a>
+                    </li>
+                  );
+                })}
                 {/* <li>
                   <Reg />
                 </li> */}
               </ul>
             </li>
 
-            {nameUser ? (
+            {userName ? (
               <>
                 <div className="d-flex">
                   <li className="nav-item" style={{ marginLeft: '700px' }}>
-                    <h6 className="userName nav-link">Привет {nameUser}</h6>
+                    <h6 className="userName nav-link">Привет {userName}</h6>
                   </li>
                   <li>
                     <a className="nav-link" href="#">
@@ -88,7 +80,7 @@ function Navbar({ nameUser }) {
                     />
                   </li>
                   <li>
-                    <a className="nav-link" href="#">
+                    <a className="nav-link" href="/logout">
                       выйти
                     </a>
                   </li>
@@ -96,14 +88,21 @@ function Navbar({ nameUser }) {
               </>
             ) : (
               <>
-                <li>
-                  <Reg />
-                </li>
-                <li>
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal">
+                  Регистрация
+                </button>
 
-                  <Login />
-
-                </li>
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModals">
+                  Лога
+                </button>
               </>
             )}
           </ul>

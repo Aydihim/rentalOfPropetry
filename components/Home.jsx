@@ -1,10 +1,10 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-function Home({ title, nameUser }) {
-  console.log(nameUser);
+function Home({ title, userName, categories }) {
+  console.log(userName, 'home user');
   return (
-    <Layout title={title} nameUser={nameUser}>
+    <Layout title={title} userName={userName} categories={categories}>
       {/* <FormReg /> */}
       <div
         id="carouselExampleAutoplaying"

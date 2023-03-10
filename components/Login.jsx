@@ -2,24 +2,14 @@ const React = require('react');
 
 function Login({ title }) {
   return (
-    <>
-      <form action="/" method="post" id="formLogin">
-        <button
-          type="button"
-          className="btn btn-primary"
-          data-bs-toggle="modal"
-          data-bs-target="#exampleModals"
-          data-bs-whatever="@getbootstrap"
-        >
-          Вход
-        </button>
+    <div className="modal-body">
+      <form action="/login" method="post" id="formLogin">
         <div
           className="modal fade"
           id="exampleModals"
           tabIndex="-1"
           aria-labelledby="exampleModalLabels"
-          aria-hidden="true"
-        >
+          aria-hidden="true">
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header">
@@ -39,12 +29,7 @@ function Login({ title }) {
                     <label htmlFor="recipient-name" className="col-form-label">
                       Емайл мама/папа не собака:
                     </label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="recipient-name"
-                      name="login1"
-                    />
+                    <input type="text" className="form-control" id="recipient-name" name="login1" />
                   </div>
                   <div className="mb-3">
                     <label htmlFor="recipient-name" className="col-form-label">
@@ -57,14 +42,13 @@ function Login({ title }) {
                       name="password1"
                     />
                   </div>
+                  <div>
+                    <h2 className="errorLog"></h2>
+                  </div>
                 </form>
               </div>
               <div className="modal-footer">
-                <button
-                  type="button"
-                  className="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
+                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">
                   Закрыть
                 </button>
                 <button type="submit" className="btn btn-primary">
@@ -75,10 +59,7 @@ function Login({ title }) {
           </div>
         </div>
       </form>
-      <div>
-        <h2 className="error"></h2>
-      </div>
-    </>
+    </div>
   );
 }
 

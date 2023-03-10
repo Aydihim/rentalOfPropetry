@@ -1,39 +1,85 @@
 const express = require('express');
-const { User } = require('../db/models');
+
+const bcrypt = require('bcrypt');
+
 
 // const Reg = require('../components/Reg');
+// const Login = require('../components/Login');
+
+
+const { User, Сategory, Property } = require('../db/models');
+const CategoryList = require('../components/CategoriesList');
+
+
+const PropertyParams = require('../components/PropertyParams');
 
 const router = express.Router();
 const Home = require('../components/Home');
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   try {
-    res.renderComponent(Home, { title: 'Home' });
+    const categories = await Сategory.findAll({ raw: true });
+    console.log(categories, '-------------------');
+    res.renderComponent(Home, { title: 'Home', categories });
   } catch (e) {
     res.status(500).json(e.message);
   }
 });
 
-router.post('/', async (req, res) => {
+router.get('/categories/:categoryId', async (req, res) => {
+  const { categoryId } = req.params;
+  try {
+    const properties = await Property.findAll({
+      where: { categoryId: Number(categoryId) },
+    });
+    res.renderComponent(CategoryList, { title: '', categoryId, properties });
+  } catch (e) {
+    res.status(500).json(e.message);
+  }
+});
+
+router.get(
+  '/categories/:categoryId/properties/:propertyId',
+  async (req, res) => {
+    const { categoryId, propertyId } = req.params;
+    try {
+      const property = await Property.findOne({
+        where: { id: Number(propertyId) },
+      });
+      const properties = await Property.findAll({
+        where: { categoryId: Number(categoryId) },
+      });
+      res.renderComponent(PropertyParams, {
+        title: `${property.title}`,
+        property,
+        properties,
+      });
+    } catch (e) {
+      res.status(500).json(e.message);
+    }
+  },
+);
+
+router.post('/reg', async (req, res) => {
   try {
     const { password, password2, name, login } = req.body;
-    console.log(req.body);
+    // console.log(req.body);
 
     if (password && password2 && name && login) {
       if (password === password2) {
         const emailUser = await User.findOne({ where: { login } });
         if (!emailUser) {
-          // const hash = await bcrypt.hash(password, 10);
-          const newUser = await User.create({
+          const hash = await bcrypt.hash(password, 10);
+          const user = await User.create({
             name,
             login,
-            password,
+            password: hash,
             status: false,
           });
-          res.app.locals.nameUser = newUser.name;
-          // console.log(res.app.locals.nameUser);
-          console.log(newUser.name);
-          req.session.userId = newUser.id;
+          req.session.userId = user.id;
+          res.app.locals.userName = user.name;
+          res.app.locals.userId = user.id;
+          res.app.locals.userStatus = user.status;
           res.json({ message: 'ok' });
         } else {
           res.json({ message: 'Такой email уже существует' });
@@ -49,30 +95,47 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.post('/', async (req, res) => {
+router.post('/login', async (req, res) => {
   try {
     const { password1, login1 } = req.body;
-    console.log(req.body);
+    if (password1 && login1) {
+      const user = await User.findOne({ where: { login: login1 } });
+      // console.log(password1, 'passssss-------------------');
 
-    if (login1) {
-      const login = await User.findOne({ where: { login1 } });
-      if (password1) {
-        const password = await User.findOne({ where: { password1 } });
+      // console.log(user, '-------------------');
+      if (user) {
+        const isSame = await bcrypt.compare(password1, user.password);
+        if (isSame) {
+          req.session.userId = user.id;
+          res.app.locals.userName = user.name;
+          res.app.locals.userId = user.id;
+          res.app.locals.userStatus = user.status;
 
-        res.app.locals.nameUser = newUser.name;
-        // console.log(res.app.locals.nameUser);
-        // console.log(newUser.name);
-        // req.session.userId = newUser.id;
-        res.json({ message: 'ok' });
+          res.json({ message: ' вы авторизованы, ура!' });
+        } else {
+          res.json({ message: 'Неверный пароль' });
+        }
       } else {
-        res.json({ message: 'Неправильный пароль' });
+        res.json({
+          message: 'Мы не нашли вас среди зарегистрированных пользователей',
+        });
       }
     } else {
-      res.json({ message: 'Неправильный логин' });
+      res.json({ message: 'Заполните все поля' });
     }
   } catch (error) {
     res.json({ message: error.message });
   }
+});
+
+router.get('/logout', (req, res) => {
+  req.session.destroy((error) => {
+    if (error) {
+      return res.status(500).json({ message: 'Ошибка при удалении сессии' });
+    }
+    res.app.locals = {};
+    res.clearCookie('user_sid').redirect('/');
+  });
 });
 
 module.exports = router;
