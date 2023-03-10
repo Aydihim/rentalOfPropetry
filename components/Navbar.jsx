@@ -2,9 +2,7 @@ const React = require('react');
 // const Reg = require('./Reg');
 // const Login = require('./Login');
 
-
-function Navbar({ userName, categories }) {
-
+function Navbar({ user, categories}) {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
       <img
@@ -66,11 +64,11 @@ function Navbar({ userName, categories }) {
               </ul>
             </li>
 
-            {userName ? (
+            {user?.name ? (
               <>
                 <div className="d-flex">
                   <li className="nav-item" style={{ marginLeft: '700px' }}>
-                    <h6 className="userName nav-link">Привет {userName}</h6>
+                    <h6 className="userName nav-link">Привет {user?.name}</h6>
                   </li>
                   <li>
                     <a className="nav-link" href="#">
@@ -92,7 +90,6 @@ function Navbar({ userName, categories }) {
               </>
             ) : (
               <>
-
                 <button
                   type="button"
                   className="btn btn-primary"
@@ -110,7 +107,6 @@ function Navbar({ userName, categories }) {
                 >
                   Лога
                 </button>
-
               </>
             )}
           </ul>

@@ -5,7 +5,7 @@ const Reg = require('./Reg');
 const Login = require('./Login');
 
 
-function Layout({ title, children, userName, categories }) {
+function Layout({ title, children, categories, user }) {
 
   return (
     <html lang="en">
@@ -50,7 +50,7 @@ function Layout({ title, children, userName, categories }) {
 
         <Login />
         <Reg />
-        <Navbar userName={userName}  categories={categories} />
+        <Navbar user={user} categories={categories} />
 
         {children}
         <Footer />
