@@ -26,11 +26,11 @@ if (formAdd) {
 if (divProperties) {
   divProperties.addEventListener('click', async (e) => {
     if (e.target.classList.contains('delete')) {
-      const res = await fetch(`//${e.target.dataset.id}`, {
+      const res = await fetch(`/categories/${categoryId}/properties/${e.target.dataset.id}`, {
         method: 'DELETE',
       });
       const data = await res.json();
-      if (data.studentNum) {
+      if (data.propertiesNum) {
         e.target.closest('.card').remove();
       }
     }

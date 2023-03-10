@@ -2,22 +2,23 @@ const React = require('react');
 const Layout = require('./Layout');
 
 
+
 function Home({ title, categories, user}) {
   return (
     <Layout title={title} user={user} categories={categories}>
+
 
       {/* <FormReg /> */}
       <div
         id="carouselExampleAutoplaying"
         className="carousel slide ms-5 me-5 mt-5"
         data-bs-ride="carousel"
+
         style={{ heigth: '50rem' }}
       >
+
         <div className="carousel-inner rounded-4">
-          <div
-            className="carousel-item active rounded-4 "
-            data-bs-interval="2000"
-          >
+          <div className="carousel-item active rounded-4 " data-bs-interval="2000">
             <img
               src="https://architecturesstyle.com/wp-content/uploads/2021/01/suburban-house-ideas-9.jpeg"
               className="d-block w-100 rounded-4"
@@ -51,8 +52,7 @@ function Home({ title, categories, user}) {
           className="carousel-control-prev"
           type="button"
           data-bs-target="#carouselExampleControlsNoTouching"
-          data-bs-slide="prev"
-        >
+          data-bs-slide="prev">
           <span className="carousel-control-prev-icon" aria-hidden="true" />
           <span className="visually-hidden">Previous</span>
         </button>
@@ -60,8 +60,7 @@ function Home({ title, categories, user}) {
           className="carousel-control-next"
           type="button"
           data-bs-target="#carouselExampleControlsNoTouching"
-          data-bs-slide="next"
-        >
+          data-bs-slide="next">
           <span className="carousel-control-next-icon" aria-hidden="true" />
           <span className="visually-hidden">Next</span>
         </button>
@@ -69,13 +68,10 @@ function Home({ title, categories, user}) {
       <div className="d-flex justify-content-center">
         <div
           className="card mt-5 ms-5 me-5 mb-5 d-flex justify-content-center"
-          style={{ width: '45rem' }}
-        >
+          style={{ width: '45rem' }}>
           <div className="card-body">
             <h4 className="card-title">Наш адрес:</h4>
-            <p className="card-text">
-              г. Санкт-Петербург, ул. Кирочая, дом. 19.
-            </p>
+            <p className="card-text">г. Санкт-Петербург, ул. Кирочая, дом. 19.</p>
             <p className="card-text">"ELBRUS COODING BOOTCAMP"</p>
           </div>
           <div className="d-flex justify-content-center mb-2">
