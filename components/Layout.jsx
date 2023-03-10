@@ -4,11 +4,7 @@ const Footer = require('./Footer');
 const Reg = require('./Reg');
 const Login = require('./Login');
 
-
-
 function Layout({ title, children, categories, user }) {
-
-
   return (
     <html lang="en">
       <head>
@@ -53,7 +49,6 @@ function Layout({ title, children, categories, user }) {
         <Reg />
 
         <Navbar user={user} categories={categories} />
-
 
         {children}
         <Footer />

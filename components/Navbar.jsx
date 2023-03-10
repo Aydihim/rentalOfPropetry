@@ -2,9 +2,7 @@ const React = require('react');
 // const Reg = require('./Reg');
 // const Login = require('./Login');
 
-
-function Navbar({ user, categories}) {
-
+function Navbar({ user, categories }) {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
       <img
@@ -94,7 +92,8 @@ function Navbar({ user, categories}) {
                   type="button"
                   className="btn btn-primary"
                   data-bs-toggle="modal"
-                  data-bs-target="#exampleModal">
+                  data-bs-target="#exampleModal"
+                  style={{ marginRight: '20px', marginLeft: '800px' }}>
                   Регистрация
                 </button>
 
